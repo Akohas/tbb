@@ -4,6 +4,12 @@
 @import 'blocks';
 @import 'modules';
 
+p{
+	font-size: 12px;
+}
 h1{
-  color: black;
+	font-size: 18px;
+}
+img{
+	max-width: 400px;
 }
