@@ -5,16 +5,22 @@ var gulp = require('gulp'),
   watch = require('gulp-watch'),
   uglify = require('gulp-uglify'),
   watchify = require('watchify'),
-  browserify = require('browserify');
+  data = require('gulp-data'),
+  browserify = require('browserify'),
   fs = require('fs');
 
 var staticStylesheet = './static/stylesheets';
+var styleCss = '../static/stylesheets/dist/style.css';
 var staticStylesheetJade = '../static';
 var viewsFolder = './views';
 
-
 gulp.task('jade', function(){
   gulp.src('./views/*.jade')
+  .pipe(data(function(file) {
+      return {
+        stylecss: styleCss
+      }
+    }))
   .pipe(jade())
   .pipe(gulp.dest('./views'))
   .pipe(connect.reload());
@@ -29,7 +35,7 @@ gulp.task('jade', function(){
 
   gulp.task('connect', function(){
     connect.server({
-      root: './views/',
+      root: './',
       livereload: true,
       port: 8000
     });

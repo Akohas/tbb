@@ -18,5 +18,8 @@
     "gulp-uglify": "^2.0.0",
     "gulp-watch": "^4.3.10",
     "jade": "^1.11.0"
+  },
+  "dependencies": {
+    "gulp-data": "^1.2.1"
   }
 }
